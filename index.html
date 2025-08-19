@@ -178,9 +178,10 @@
 
         /* 9:16 aspect ratio for Kaal Nagri */
         .image-9-16 {
-           height: 700px;
-             max-width: 400px; 
-            margin : 0 auto 1.5rem auto;
+            aspect-ratio: 9/16;
+            height: 700px;
+            max-width: 400px;
+            margin: 0 auto 1.5rem auto;
         }
 
         .image-custom {
@@ -257,6 +258,62 @@
             margin-top: 3rem;
         }
         
+        /* Force 4 columns on desktop, but allow responsive on mobile */
+        @media (min-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* 2x2 grid on mobile */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+                /* Desktop height */
+        img[src="7.png"] {
+            height: 650px !important;
+        }
+
+        /* Mobile height */
+        @media (max-width: 768px) {
+            img[src="7.png"] {
+                height: 400px !important;
+            }
+        }
+
+                /* Desktop height */
+        img[src="1.png"] {
+            height: 650px !important;
+        }
+
+        /* Mobile height and centering */
+        @media (max-width: 768px) {
+            img[src="1.png"] {
+                height: 400px !important;
+                display: block;
+                margin: 0 auto !important;
+            }
+        }
+
+        /* Fix card container on mobile for upcoming shows */
+        @media (max-width: 768px) {
+            .project-card {
+                min-height: auto !important;
+                height: auto !important;
+                padding: 1.5rem !important;
+            }
+            
+            /* Specific fix for Shakti image */
+            img[src="8.png"] {
+                height: 300px !important;
+                width: auto !important;
+                max-width: 100% !important;
+                object-fit: contain !important;
+            }
+        }
         .stat-card {
             text-align: center;
             padding: 2rem;
@@ -401,7 +458,41 @@
             }
             
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            /* Fix image scaling on mobile */
+            .project-image {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                object-fit: contain; /* Changed from cover to contain */
+            }
+            
+            .image-16-9 {
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+            
+            .image-9-16 {
+                height: auto;
+                max-width: 250px;
+                margin: 0 auto 1.5rem auto;
+            }
+            
+            .image-custom {
+                height: auto;
+                aspect-ratio: 1.8/1;
+            }
+            
+            /* Smaller text on mobile */
+            .section-title {
+                font-size: clamp(1.5rem, 8vw, 3rem);
+            }
+            
+            .hero h1 {
+                font-size: clamp(2rem, 12vw, 6rem);
             }
         }
     </style>
@@ -426,7 +517,7 @@
                     <h2 class="section-title">About Balaji Telefilms</h2>
                     <div class="content-grid">
                         <div>
-                            <img src="12a.png" class="project-image image-custom" alt="Balaji Promoters" style="height:300px">
+                            <img src="12a.png" class="project-image image-custom" alt="Balaji Promoters">
                             <div class="project-title" style="color: #00d4ff; margin-top: 1rem; text-align: center;">Our Promoters</div>
                             <div class="project-description" style="text-align: center;">
                                 Pioneers of Indian content industry, Balaji Telefilms Ltd. has been successfully entertaining audiences across the country with stories that are true to the heartland.
@@ -440,7 +531,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stats-grid" style="margin-top: 3rem; grid-template-columns: repeat(4, 1fr);">
+                    <div class="stats-grid" style="margin-top: 3rem;">
                         <div class="stat-card">
                             <div class="stat-number">150+</div>
                             <div class="stat-label">TV Shows</div>
@@ -467,7 +558,6 @@
             <div class="slide-content">
                 <div class="content-grid">
                     <div>
-                        
                         <h2 class="section-title">Why AI for Entertainment?</h2>
                         <ul class="feature-list">
                             <li style="--i: 1">
@@ -489,7 +579,7 @@
                         </ul>
                     </div>
                     <div>
-                        <img src="9.png" class="project-image image-16-9" alt="AI Entertainment Benefits">
+                        <img src="9.png" class="project-image image-16-9" alt="AI Entertainment Benefits" style = "height:500px">
                     </div>
                 </div>
             </div>
@@ -577,7 +667,7 @@
                             <div class="project-description">
                                 AI-crafted devotional music video celebrating Lord Ram with stunning visuals and emotional depth.
                             </div>
-                            <a href="https://youtu.be/SAudJWB-Jvg?si=tCRu-FQLaoFuc05T" target="_blank" class="project-link">▶ Watch</a>
+                            <a href="https://youtu.be/cTrcWs109a0" target="_blank" class="project-link">▶ Watch</a>
                         </div>
                         <div class="project-card">
                             <img src="6.png" class="project-image image-16-9" alt="Janmashtami">
@@ -586,7 +676,7 @@
                             <div class="project-description">
                                 Celebrating Lord Krishna's playful nature through AI-generated visuals and music.
                             </div>
-                            <a href="https://youtu.be/9qkP0syQq24?si=6qocI3tvunBDqp50" target="_blank" class="project-link">▶ Watch</a>
+                            <a href="https://youtu.be/9qkP0syQq24" target="_blank" class="project-link">▶ Watch</a>
                         </div>
                     </div>
                 </div>
@@ -600,7 +690,7 @@
                     <h2 class="section-title">🚀 Upcoming Shows</h2>
                     <div class="content-grid">
                         <div class="project-card">
-                            <img src="8.png" class="project-image image-16-9" alt="Shakti: The Awakening">
+                            <img src="8.png" class="project-image image-16-9" alt="Shakti: The Awakening" style = "height:400px">
                             <div class="project-title">SHAKTI: THE AWAKENING</div>
                             <div class="project-meta">Mythological Fantasy | In Pre-Production</div>
                             <div class="project-description">
@@ -608,7 +698,7 @@
                             </div>
                         </div>
                         <div class="project-card">
-                            <img src="7.png" class="project-image image-9-16" alt="The Diary">
+                            <img src="7.png" class="project-image image-9-16" alt="The Diary" style = "height:600px">
                             <div class="project-title">THE DIARY</div>
                             <div class="project-meta">Supernatural Thriller | In Pre-Production</div>
                             <div class="project-description">
@@ -663,7 +753,7 @@
             </div>
         </section>
 
-        <!-- Slide 10: Road Ahead -->
+       
 <!-- Slide 10: Road Ahead -->
         <section class="slide" id="slide10">
             <div class="slide-content">
@@ -700,16 +790,23 @@
         </section>
 
         <!-- Slide 11: Closing -->
-        <section class="slide" id="slide11">
+<section class="slide" id="slide11">
             <div class="slide-content">
                 <div class="hero">
                     <h1 style="font-size: clamp(2rem, 6vw, 5rem);">BALAJI TELEFILMS</h1>
                     <div class="subtitle">AI VERTICAL</div>
                     <p class="tagline">"The future of storytelling begins here."</p>
-                        <div class="cta-section">
-                        <a href="mailto:chetan.hansraj@balajitelefilms.com?subject=AI Ventures Partnership Inquiry&body=Hi, I'm interested in partnering with Balaji Telefilms AI Ventures. Please share more details." class="cta-button">Partner With Us</a>
-                        <div style="margin-top: 1rem; color: #a0a0a0; font-size: 1rem;">
-                            📧 chetan.hansraj@balajitelefilms.com | 📞 +91-9820145403
+                    <div class="cta-section">
+                        <a href="mailto:chetan.hansraj@balajitelefilms.com,kavvya.bharathi@balajitelefilms.com?subject=AI Ventures Partnership Inquiry&body=Hi, I'm interested in partnering with Balaji Telefilms AI Ventures. Please share more details." class="cta-button">Partner With Us</a>
+                        <div style="margin-top: 2rem; color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
+                            <div style="margin-bottom: 1rem;">
+                                📧 <strong>Chetan Hansraj</strong> - Head of Ai & Vfx<br>
+                                chetan.hansraj@balajitelefilms.com | 📞 +91-9820145403
+                            </div>
+                            <div>
+                                📧 <strong>Kavvya Bharathi</strong> - Sales Head<br>
+                                kavvya.bharathi@balajitelefilms.com | 📞 +91-9820145403
+                            </div>
                         </div>
                     </div>
                 </div>
