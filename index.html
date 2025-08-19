@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balaji Telefilms - AI Ventures</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script> -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -109,6 +110,10 @@
             font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 2rem;
+            color: #ffffff; /* Default color for emojis */
+        }
+
+        .section-title .gradient-text {
             background: linear-gradient(135deg, #00d4ff, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -495,6 +500,92 @@
                 font-size: clamp(2rem, 12vw, 6rem);
             }
         }
+
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    margin: 5% auto;
+    padding: 2rem;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    backdrop-filter: blur(20px);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.close:hover {
+    color: #00d4ff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #00d4ff, #ff0080);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
     </style>
 </head>
 <body>
@@ -590,7 +681,7 @@
             <div class="slide-content">
                 <div class="content-grid">
                     <div>
-                        <h2 class="section-title">🎬 KAAL NAGRI</h2>
+                        <h2 class="section-title">🎬 <span class="gradient-text">KAAL NAGRI</span></h2>
                         <div class="project-card">
                             <div class="project-title">India's First AI-Generated Web Series</div>
                             <div class="project-meta">Released May 2025 | 25 Episodes | 1.5 mins each</div>
@@ -611,7 +702,7 @@
         <section class="slide" id="slide5">
             <div class="slide-content">
                 <div class="content-single">
-                    <h2 class="section-title">💔 PYAAR KI PUKAAR</h2>
+                    <h2 class="section-title">💔 <span class="gradient-text">PYAAR KI PUKAAR</span></h2>
                     <div class="project-card">
                         <img src="2.png" class="project-image image-16-9" alt="Pyaar Ki Pukaar">
                         <div class="project-title">Supernatural Romance</div>
@@ -629,7 +720,7 @@
         <section class="slide" id="slide6">
             <div class="slide-content">
                 <div class="content-single">
-                    <h2 class="section-title">📢 Brand Collaborations</h2>
+                    <h2 class="section-title">📢 <span class="gradient-text">Brand Collaborations</span></h2>
                     <div class="content-grid">
                         <div class="project-card">
                             <img src="3.png" class="project-image image-16-9" alt="Renee Cosmetics">
@@ -658,7 +749,7 @@
         <section class="slide" id="slide7">
             <div class="slide-content">
                 <div class="content-single">
-                    <h2 class="section-title">🎶 Mythology in Motion</h2>
+                    <h2 class="section-title">🎶 <span class="gradient-text">Mythology in Motion</span></h2>
                     <div class="content-grid">
                         <div class="project-card">
                             <img src="5.png" class="project-image image-16-9" alt="Ram Navami">
@@ -687,7 +778,7 @@
         <section class="slide" id="slide8">
             <div class="slide-content">
                 <div class="content-single">
-                    <h2 class="section-title">🚀 Upcoming Shows</h2>
+                    <h2 class="section-title">🎭 <span class="gradient-text">Upcoming Shows</span></h2>
                     <div class="content-grid">
                         <div class="project-card">
                             <img src="8.png" class="project-image image-16-9" alt="Shakti: The Awakening" style = "height:400px">
@@ -797,7 +888,8 @@
                     <div class="subtitle">AI VERTICAL</div>
                     <p class="tagline">"The future of storytelling begins here."</p>
                     <div class="cta-section">
-                        <a href="mailto:chetan.hansraj@balajitelefilms.com,kavvya.bharathi@balajitelefilms.com?subject=AI Ventures Partnership Inquiry&body=Hi, I'm interested in partnering with Balaji Telefilms AI Ventures. Please share more details." class="cta-button">Partner With Us</a>
+                        <a href="#" onclick="openModal()" class="cta-button">Partner With Us</a>
+                        <div style="margin-top: 2rem; color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
                         <div style="margin-top: 2rem; color: #a0a0a0; font-size: 1rem; line-height: 1.6;">
                             <div style="margin-bottom: 1rem;">
                                 📧 <strong>Chetan Hansraj</strong> - Head of Ai & Vfx<br>
@@ -805,7 +897,7 @@
                             </div>
                             <div>
                                 📧 <strong>Kavvya Bharathi</strong> - Sales Head<br>
-                                kavvya.bharathi@balajitelefilms.com | 📞 +91-9821213508
+                                kavvya.bharathi@balajitelefilms.com | 📞 +91-9820145403
                             </div>
                         </div>
                     </div>
@@ -828,7 +920,38 @@
         <div class="nav-dot" data-slide="10"></div>
         <div class="nav-dot" data-slide="11"></div>
     </div>
-
+<!-- Contact Form Modal -->
+<!-- Contact Form Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="color: #00d4ff; margin-bottom: 1.5rem; text-align: center;">Partner With Us</h2>
+            
+            <form action="https://formspree.io/f/xanbgerd" method="POST">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Mobile Number *</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea name="message" rows="4" required placeholder="Tell us about your partnership interests..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
     <script>
         // Smooth scrolling navigation
         const navDots = document.querySelectorAll('.nav-dot');
@@ -888,7 +1011,22 @@
                 slide.style.transform = `translateY(${rate * 0.1}px)`;
             });
         });
+// Modal functions only - form works automatically now
+function openModal() {
+    document.getElementById('contactModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('contactModal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
     </script>
 </body>
 </html>
-
