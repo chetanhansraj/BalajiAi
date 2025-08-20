@@ -57,6 +57,10 @@
             z-index: 2;
             position: relative;
         }
+
+        #slide1 {
+            min-height: 100vh; /* Reduced from 100vh */
+        }
         
         /* Hero Section */
         .hero {
@@ -502,90 +506,210 @@
         }
 
         .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            backdrop-filter: blur(20px);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+
+        .close:hover {
+            color: #00d4ff;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #00d4ff, #ff0080);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            
+        }
+
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease-out;
+        }
+
+        .scale-in.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Video Modal */
+.video-modal {
     display: none;
     position: fixed;
-    z-index: 9999;
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
 }
 
-.modal-content {
+.video-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    margin: 5% auto;
+    border-radius: 20px;
     padding: 2rem;
     border: 1px solid rgba(0, 212, 255, 0.3);
-    border-radius: 20px;
-    width: 90%;
-    max-width: 500px;
-    position: relative;
-    backdrop-filter: blur(20px);
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+.video-close {
     position: absolute;
     right: 1rem;
     top: 1rem;
-}
-
-.close:hover {
-    color: #00d4ff;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #00d4ff;
-    font-weight: 600;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
-    font-family: 'Inter', sans-serif;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #00d4ff;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-}
-
-.submit-btn {
-    background: linear-gradient(135deg, #00d4ff, #ff0080);
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
-    width: 100%;
-    transition: all 0.3s ease;
+    z-index: 10001;
 }
 
-.submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+.video-close:hover {
+    color: #00d4ff;
 }
+
+.video-iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 15px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .video-iframe {
+        height: 250px;
+    }
+    
+    .video-modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
+}
+
+
+/* More dramatic upward animation */
+.fade-in-up-big {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up-big.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
     </style>
 </head>
 <body>
@@ -602,283 +726,287 @@
         </section>
 
         <!-- Slide 2: About Balaji Telefilms -->
-        <section class="slide" id="slide2">
-            <div class="slide-content">
-                <div class="content-single">
-                    <h2 class="section-title">About Balaji Telefilms</h2>
-                    <div class="content-grid">
-                        <div>
-                            <img src="12a.png" class="project-image image-custom" alt="Balaji Promoters">
-                            <div class="project-title" style="color: #00d4ff; margin-top: 1rem; text-align: center;">Our Promoters</div>
-                            <div class="project-description" style="text-align: center;">
-                                Pioneers of Indian content industry, Balaji Telefilms Ltd. has been successfully entertaining audiences across the country with stories that are true to the heartland.
-                            </div>
-                        </div>
-                        <div>
-                            <img src="11.png" class="project-image image-custom" alt="Balaji Content Portfolio">
-                            <div class="project-title" style="text-align: center; color: #ff0080;">Entertaining Audiences Since 1994</div>
-                            <div class="project-description" style="text-align: center; margin-top: 1rem;">
-                                From television to movies to digital platforms - Balaji has consistently set new benchmarks across all entertainment mediums. Now pioneering the next frontier with AI-powered content creation.
-                            </div>
-                        </div>
+<section class="slide" id="slide2">
+    <div class="slide-content">
+        <div class="content-single">
+            <h2 class="section-title fade-in-up">About Balaji Telefilms</h2>
+            <div class="content-grid">
+                <div class="fade-in-left">
+                    <img src="12a.png" class="project-image image-custom" alt="Balaji Promoters">
+                    <div class="project-title" style="color: #00d4ff; margin-top: 1rem; text-align: center;">Our Promoters</div>
+                    <div class="project-description" style="text-align: center;">
+                        Pioneers of Indian content industry, Balaji Telefilms Ltd. has been successfully entertaining audiences across the country with stories that are true to the heartland.
                     </div>
-                    <div class="stats-grid" style="margin-top: 3rem;">
-                        <div class="stat-card">
-                            <div class="stat-number">150+</div>
-                            <div class="stat-label">TV Shows</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Movies</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">40+</div>
-                            <div class="stat-label">Digital Originals</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">30+</div>
-                            <div class="stat-label">Years Legacy</div>
-                        </div>
+                </div>
+                <div class="fade-in-right">
+                    <img src="11.png" class="project-image image-custom" alt="Balaji Content Portfolio">
+                    <div class="project-title" style="text-align: center; color: #ff0080;">Entertaining Audiences Since 1994</div>
+                    <div class="project-description" style="text-align: center; margin-top: 1rem;">
+                        From television to movies to digital platforms - Balaji has consistently set new benchmarks across all entertainment mediums. Now pioneering the next frontier with AI-powered content creation.
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="stats-grid" style="margin-top: 3rem;">
+                <div class="stat-card scale-in" style="animation-delay: 0.1s;">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">TV Shows</div>
+                </div>
+                <div class="stat-card scale-in" style="animation-delay: 0.2s;">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Movies</div>
+                </div>
+                <div class="stat-card scale-in" style="animation-delay: 0.3s;">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Digital Originals</div>
+                </div>
+                <div class="stat-card scale-in" style="animation-delay: 0.4s;">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Years Legacy</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 3: Why AI -->
-        <section class="slide" id="slide3">
-            <div class="slide-content">
-                <div class="content-grid">
-                    <div>
-                        <h2 class="section-title">Why AI for Entertainment?</h2>
-                        <ul class="feature-list">
-                            <li style="--i: 1">
-                                <span class="icon">💰</span>
-                                <span>70% cost reduction - Premium content at micro-budget scale</span>
-                            </li>
-                            <li style="--i: 2">
-                                <span class="icon">⚡</span>
-                                <span>5x faster production - From concept to screen in weeks, not months</span>
-                            </li>
-                            <li style="--i: 3">
-                                <span class="icon">🌟</span>
-                                <span>Impossible stories made possible - Historical figures, mythological beings, fantasy worlds</span>
-                            </li>
-                            <li style="--i: 4">
-                                <span class="icon">🌍</span>
-                                <span>Infinite scale - Same story, multiple languages, unlimited casting</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <img src="9.png" class="project-image image-16-9" alt="AI Entertainment Benefits" style = "height:500px">
-                    </div>
-                </div>
+<section class="slide" id="slide3">
+    <div class="slide-content">
+        <div class="content-grid">
+            <div class="fade-in-left">
+                <h2 class="section-title">Why AI for Entertainment?</h2>
+                <ul class="feature-list">
+                    <li style="--i: 1">
+                        <span class="icon">💰</span>
+                        <span>70% cost reduction - Premium content at micro-budget scale</span>
+                    </li>
+                    <li style="--i: 2">
+                        <span class="icon">⚡</span>
+                        <span>5x faster production - From concept to screen in weeks, not months</span>
+                    </li>
+                    <li style="--i: 3">
+                        <span class="icon">🌟</span>
+                        <span>Impossible stories made possible - Historical figures, mythological beings, fantasy worlds</span>
+                    </li>
+                    <li style="--i: 4">
+                        <span class="icon">🌍</span>
+                        <span>Infinite scale - Same story, multiple languages, unlimited casting</span>
+                    </li>
+                </ul>
             </div>
-        </section>
+            <div class="fade-in-right">
+                <img src="9.png" class="project-image image-16-9" alt="AI Entertainment Benefits" style="height:500px">
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 4: Kaal Nagri -->
-        <section class="slide" id="slide4">
-            <div class="slide-content">
-                <div class="content-grid">
-                    <div>
-                        <h2 class="section-title">🎬 <span class="gradient-text">KAAL NAGRI</span></h2>
-                        <div class="project-card">
-                            <div class="project-title">India's First AI-Generated Web Series</div>
-                            <div class="project-meta">Released May 2025 | 25 Episodes | 1.5 mins each</div>
-                            <div class="project-description">
-                                Neo-noir crime thriller that combines suspense, crime, and horror elements in a gripping cinematic experience. This groundbreaking micro-drama showcases the potential of AI in creating compelling narratives.
-                            </div>
-                            <a href="https://www.youtube.com/watch?v=UO--daKQdxA" target="_blank" class="project-link">▶ Watch Now</a>
-                        </div>
+<section class="slide" id="slide4">
+    <div class="slide-content">
+        <div class="hero">
+            <h1 class="fade-in-up" style="font-size: clamp(2.5rem, 7vw, 6rem);">OUR AI CONTENT</h1>
+            <div class="subtitle fade-in-up">PORTFOLIO</div>
+        </div>
+        <div class="content-grid">
+            <div class="fade-in-left">
+                <h2 class="section-title">🎬 <span class="gradient-text">KAAL NAGRI</span></h2>
+                <div class="project-card">
+                    <div class="project-title">India's First AI-Generated Web Series</div>
+                    <div class="project-meta">Released May 2025 | 25 Episodes | 1.5 mins each</div>
+                    <div class="project-description">
+                        Neo-noir crime thriller that combines suspense, crime, and horror elements in a gripping cinematic experience. This groundbreaking micro-drama showcases the potential of AI in creating compelling narratives.
                     </div>
-                    <div>
-                        <img src="1.png" class="project-image image-9-16" alt="Kaal Nagri Poster">
-                    </div>
+                    <a href="#" onclick="openVideo('UO--daKQdxA', event)" class="project-link">▶ Watch Now</a>
                 </div>
             </div>
-        </section>
+            <div class="fade-in-right">
+                <img src="1.png" class="project-image image-9-16" alt="Kaal Nagri Poster">
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 5: Pyaar Ki Pukaar -->
-        <section class="slide" id="slide5">
-            <div class="slide-content">
-                <div class="content-single">
-                    <h2 class="section-title">💔 <span class="gradient-text">PYAAR KI PUKAAR</span></h2>
-                    <div class="project-card">
-                        <img src="2.png" class="project-image image-16-9" alt="Pyaar Ki Pukaar">
-                        <div class="project-title">Supernatural Romance</div>
-                        <div class="project-meta">In Production | 16 Episodes | 15–18 mins each</div>
-                        <div class="project-description">
-                            Follow Raveena, 19, as she falls for Neil, a centuries-old vampire. This ambitious project expands AI-generated storytelling to long-form OTT scale, pushing the boundaries of what's possible with artificial intelligence in entertainment.
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=XRYYLJVzjP0" target="_blank" class="project-link">▶ Preview</a>
-                    </div>
+<section class="slide" id="slide5">
+    <div class="slide-content">
+        <div class="content-single">
+            <h2 class="section-title fade-in-up">💔 <span class="gradient-text">PYAAR KI PUKAAR</span></h2>
+            <div class="project-card scale-in">
+                <img src="2.png" class="project-image image-16-9" alt="Pyaar Ki Pukaar">
+                <div class="project-title">Supernatural Romance</div>
+                <div class="project-meta">In Production | 16 Episodes | 15–18 mins each</div>
+                <div class="project-description">
+                    Follow Raveena, 19, as she falls for Neil, a centuries-old vampire. This ambitious project expands AI-generated storytelling to long-form OTT scale, pushing the boundaries of what's possible with artificial intelligence in entertainment.
                 </div>
+                <a href="#" onclick="openVideo('XRYYLJVzjP0', event)" class="project-link">▶ Preview</a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 6: Brand Collaborations -->
-        <section class="slide" id="slide6">
-            <div class="slide-content">
-                <div class="content-single">
-                    <h2 class="section-title">📢 <span class="gradient-text">Brand Collaborations</span></h2>
-                    <div class="content-grid">
-                        <div class="project-card">
-                            <img src="3.png" class="project-image image-16-9" alt="Renee Cosmetics">
-                            <div class="project-title">Renee Cosmetics</div>
-                            <div class="project-meta">Reinventing Beauty</div>
-                            <div class="project-description">
-                                AI-powered beauty campaign that redefined cosmetic advertising with innovative storytelling.
-                            </div>
-                            <a href="https://youtu.be/bB1FVU7Xsr0" target="_blank" class="project-link">▶ Watch</a>
-                        </div>
-                        <div class="project-card">
-                            <img src="4.png" class="project-image image-16-9" alt="Muthoot Finance">
-                            <div class="project-title">Muthoot Finance</div>
-                            <div class="project-meta">Stories of Victory</div>
-                            <div class="project-description">
-                                1-minute emotional narratives showcasing triumph and financial empowerment.
-                            </div>
-                            <a href="https://youtu.be/4s_Ol0Lj8wA" target="_blank" class="project-link">▶ Watch</a>
-                        </div>
+<section class="slide" id="slide6">
+    <div class="slide-content">
+        <div class="content-single">
+            <h2 class="section-title fade-in-up">📢 <span class="gradient-text">Brand Collaborations</span></h2>
+            <div class="content-grid">
+                <div class="project-card fade-in-left">
+                    <img src="3.png" class="project-image image-16-9" alt="Renee Cosmetics">
+                    <div class="project-title">Renee Cosmetics</div>
+                    <div class="project-meta">Reinventing Beauty</div>
+                    <div class="project-description">
+                        AI-powered beauty campaign that redefined cosmetic advertising with innovative storytelling.
                     </div>
+                    <a href="#" onclick="openVideo('bB1FVU7Xsr0', event)" class="project-link">▶ Watch</a>
+                </div>
+                <div class="project-card fade-in-right">
+                    <img src="4.png" class="project-image image-16-9" alt="Muthoot Finance">
+                    <div class="project-title">Muthoot Finance</div>
+                    <div class="project-meta">Stories of Victory</div>
+                    <div class="project-description">
+                        1-minute emotional narratives showcasing triumph and financial empowerment.
+                    </div>
+                    <a href="#" onclick="openVideo('4s_Ol0Lj8wA', event)" class="project-link">▶ Watch</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 7: Music Videos -->
-        <section class="slide" id="slide7">
-            <div class="slide-content">
-                <div class="content-single">
-                    <h2 class="section-title">🎶 <span class="gradient-text">Mythology in Motion</span></h2>
-                    <div class="content-grid">
-                        <div class="project-card">
-                            <img src="5.png" class="project-image image-16-9" alt="Ram Navami">
-                            <div class="project-title">Ram Navami</div>
-                            <div class="project-meta">Soulful Tribute</div>
-                            <div class="project-description">
-                                AI-crafted devotional music video celebrating Lord Ram with stunning visuals and emotional depth.
-                            </div>
-                            <a href="https://youtu.be/cTrcWs109a0" target="_blank" class="project-link">▶ Watch</a>
-                        </div>
-                        <div class="project-card">
-                            <img src="6.png" class="project-image image-16-9" alt="Janmashtami">
-                            <div class="project-title">Janmashtami</div>
-                            <div class="project-meta">Divine Playfulness</div>
-                            <div class="project-description">
-                                Celebrating Lord Krishna's playful nature through AI-generated visuals and music.
-                            </div>
-                            <a href="https://youtu.be/9qkP0syQq24" target="_blank" class="project-link">▶ Watch</a>
-                        </div>
+<section class="slide" id="slide7">
+    <div class="slide-content">
+        <div class="content-single">
+            <h2 class="section-title fade-in-up">🎶 <span class="gradient-text">Mythology in Motion</span></h2>
+            <div class="content-grid">
+                <div class="project-card fade-in-left">
+                    <img src="5.png" class="project-image image-16-9" alt="Ram Navami">
+                    <div class="project-title">Ram Navami</div>
+                    <div class="project-meta">Soulful Tribute</div>
+                    <div class="project-description">
+                        AI-crafted devotional music video celebrating Lord Ram with stunning visuals and emotional depth.
                     </div>
+                    <a href="#" onclick="openVideo('cTrcWs109a0', event)" class="project-link">▶ Watch</a>
+                </div>
+                <div class="project-card fade-in-right">
+                    <img src="6.png" class="project-image image-16-9" alt="Janmashtami">
+                    <div class="project-title">Janmashtami</div>
+                    <div class="project-meta">Divine Playfulness</div>
+                    <div class="project-description">
+                        Celebrating Lord Krishna's playful nature through AI-generated visuals and music.
+                    </div>
+                    <a href="#" onclick="openVideo('9qkP0syQq24', event)" class="project-link">▶ Watch</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 8: Upcoming Shows -->
-        <section class="slide" id="slide8">
-            <div class="slide-content">
-                <div class="content-single">
-                    <h2 class="section-title">🎭 <span class="gradient-text">Upcoming Shows</span></h2>
-                    <div class="content-grid">
-                        <div class="project-card">
-                            <img src="8.png" class="project-image image-16-9" alt="Shakti: The Awakening" style = "height:400px">
-                            <div class="project-title">SHAKTI: THE AWAKENING</div>
-                            <div class="project-meta">Mythological Fantasy | In Pre-Production</div>
-                            <div class="project-description">
-                                When a 13-year drought ravages the Kingdom of Kaalgarh, a temple orphan named Devika discovers she's the mortal incarnation of Shakti - the cosmic force of creation and destruction. As a power-hungry king uses dark tantric rituals to summon ancient demons for immortality, Devika must choose between her human life and divine destiny to save her people.
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <img src="7.png" class="project-image image-9-16" alt="The Diary" style = "height:600px">
-                            <div class="project-title">THE DIARY</div>
-                            <div class="project-meta">Supernatural Thriller | In Pre-Production</div>
-                            <div class="project-description">
-                                When college transfer student Rhea moves into Room 203, she discovers the diary of Aarohi Mehta - a girl who supposedly "left college" but actually died under suspicious circumstances. The diary becomes supernaturally active, revealing that Aarohi and another student, Neha, were murdered by a systematic campus assault ring.
-                            </div>
-                        </div>
+<section class="slide" id="slide8">
+    <div class="slide-content">
+        <div class="content-single">
+            <h2 class="section-title fade-in-up">🎭 <span class="gradient-text">Upcoming Shows</span></h2>
+            <div class="content-grid">
+                <div class="project-card fade-in-left">
+                    <img src="8.png" class="project-image image-16-9" alt="Shakti: The Awakening" style="height:400px">
+                    <div class="project-title">SHAKTI: THE AWAKENING</div>
+                    <div class="project-meta">Mythological Fantasy | In Pre-Production</div>
+                    <div class="project-description">
+                        When a 13-year drought ravages the Kingdom of Kaalgarh, a temple orphan named Devika discovers she's the mortal incarnation of Shakti - the cosmic force of creation and destruction. As a power-hungry king uses dark tantric rituals to summon ancient demons for immortality, Devika must choose between her human life and divine destiny to save her people.
+                    </div>
+                </div>
+                <div class="project-card fade-in-right">
+                    <img src="7.png" class="project-image image-9-16" alt="The Diary" style="height:600px">
+                    <div class="project-title">THE DIARY</div>
+                    <div class="project-meta">Supernatural Thriller | In Pre-Production</div>
+                    <div class="project-description">
+                        When college transfer student Rhea moves into Room 203, she discovers the diary of Aarohi Mehta - a girl who supposedly "left college" but actually died under suspicious circumstances. The diary becomes supernaturally active, revealing that Aarohi and another student, Neha, were murdered by a systematic campus assault ring.
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 9: Why Partner -->
-        <section class="slide" id="slide9">
-            <div class="slide-content">
-                <div class="content-single">
-                    <h2 class="section-title">Why Partner With Us?</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">25+</div>
-                            <div class="stat-label">Episodes Delivered</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">70%</div>
-                            <div class="stat-label">Cost Reduction</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">5x</div>
-                            <div class="stat-label">Faster Production</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">1st</div>
-                            <div class="stat-label">AI Series in India</div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 3rem;">
-                        <ul class="feature-list">
-                            <li style="--i: 1">
-                                <span class="icon">🏆</span>
-                                <span>Proven track record across crime, romance, ads, and devotional content</span>
-                            </li>
-                            <li style="--i: 2">
-                                <span class="icon">🎯</span>
-                                <span>From micro-dramas to full OTT series - we scale with your vision</span>
-                            </li>
-                            <li style="--i: 3">
-                                <span class="icon">🚀</span>
-                                <span>First-mover advantage in India's $24B entertainment market</span>
-                            </li>
-                        </ul>
-                    </div>
+<section class="slide" id="slide9">
+    <div class="slide-content">
+        <div class="content-single">
+            <h2 class="section-title fade-in-up">Why Partner With Us?</h2>
+            <div class="stats-grid">
+                <div class="stat-card scale-in" style="animation-delay: 0.1s;">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Episodes Delivered</div>
+                </div>
+                <div class="stat-card scale-in" style="animation-delay: 0.2s;">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat-card scale-in" style="animation-delay: 0.3s;">
+                    <div class="stat-number">5x</div>
+                    <div class="stat-label">Faster Production</div>
+                </div>
+                <div class="stat-card scale-in" style="animation-delay: 0.4s;">
+                    <div class="stat-number">1st</div>
+                    <div class="stat-label">AI Series in India</div>
                 </div>
             </div>
-        </section>
+            <div style="margin-top: 3rem;">
+                <ul class="feature-list fade-in-up">
+                    <li style="--i: 1">
+                        <span class="icon">🏆</span>
+                        <span>Proven track record across crime, romance, ads, and devotional content</span>
+                    </li>
+                    <li style="--i: 2">
+                        <span class="icon">🎯</span>
+                        <span>From micro-dramas to full OTT series - we scale with your vision</span>
+                    </li>
+                    <li style="--i: 3">
+                        <span class="icon">🚀</span>
+                        <span>First-mover advantage in India's $24B entertainment market</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
        
 <!-- Slide 10: Road Ahead -->
-        <section class="slide" id="slide10">
-            <div class="slide-content">
-                <div class="content-single">
-                    <h2 class="section-title">The Road Ahead</h2>
-                    <ul class="feature-list">
-                        <li style="--i: 1">
-                            <span class="icon">🎬</span>
-                            <span>AI-generated feature films - Full-length movies with virtual actors</span>
-                        </li>
-                        <li style="--i: 2">
-                            <span class="icon">🎮</span>
-                            <span>Interactive gaming content using Unreal Engine & virtual production</span>
-                        </li>
-                        <li style="--i: 3">
-                            <span class="icon">🎵</span>
-                            <span>AI music composition & soundtrack creation for all content</span>
-                        </li>
-                        <li style="--i: 4">
-                            <span class="icon">📱</span>
-                            <span>Personalized AI web series - Content that adapts to viewer preferences</span>
-                        </li>
-                        <li style="--i: 5">
-                            <span class="icon">🔧</span>
-                            <span>AI utility solutions for brands - Automated content creation tools</span>
-                        </li>
-                        <li style="--i: 6">
-                            <span class="icon">🌐</span>
-                            <span>Metaverse entertainment experiences & virtual world storytelling</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<section class="slide" id="slide10">
+    <div class="slide-content">
+        <div class="content-single">
+            <h2 class="section-title fade-in-up">The Road Ahead</h2>
+            <ul class="feature-list">
+                <li class="fade-in-up-big" style="--i: 1; animation-delay: 0.1s;">
+                    <span class="icon">🎬</span>
+                    <span>AI-generated feature films - Full-length movies with virtual actors</span>
+                </li>
+                <li class="fade-in-up-big" style="--i: 2; animation-delay: 0.2s;">
+                    <span class="icon">🎮</span>
+                    <span>Interactive gaming content using Unreal Engine & virtual production</span>
+                </li>
+                <li class="fade-in-up-big" style="--i: 3; animation-delay: 0.3s;">
+                    <span class="icon">🎵</span>
+                    <span>AI music composition & soundtrack creation for all content</span>
+                </li>
+                <li class="fade-in-up-big" style="--i: 4; animation-delay: 0.4s;">
+                    <span class="icon">📱</span>
+                    <span>Personalized AI web series - Content that adapts to viewer preferences</span>
+                </li>
+                <li class="fade-in-up-big" style="--i: 5; animation-delay: 0.5s;">
+                    <span class="icon">🔧</span>
+                    <span>AI utility solutions for brands - Automated content creation tools</span>
+                </li>
+                <li class="fade-in-up-big" style="--i: 6; animation-delay: 0.6s;">
+                    <span class="icon">🌐</span>
+                    <span>Metaverse entertainment experiences & virtual world storytelling</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 
         <!-- Slide 11: Closing -->
 <section class="slide" id="slide11">
@@ -950,6 +1078,14 @@
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-close" onclick="closeVideo()">&times;</span>
+            <iframe id="videoFrame" class="video-iframe" src="" allowfullscreen></iframe>
         </div>
     </div>
     <script>
@@ -1027,8 +1163,60 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 }
+
+// Scroll Animation Observer
+const animateOnScroll = () => {
+    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -300px 0px'
+    });
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+};
+
+
+
+// Initialize animations when page loads
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+// Video Modal Functions - Fixed version
+function openVideo(videoId, event) {
+    event.preventDefault(); // Prevent default anchor behavior
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeVideo() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    iframe.src = '';
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+// Close video modal when clicking outside
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('videoModal');
+    if (event.target === modal) {
+        closeVideo();
+    }
+});
+
+
     </script>
 </body>
 </html>
-
 
